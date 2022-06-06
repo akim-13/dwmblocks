@@ -1,0 +1,5 @@
+#!/bin/sh
+
+date=$(date "+%r")
+# date=$(date | awk 'END {printf("\x01| \x01"$1" "$2" "$3)}')
+printf "^c#d79921^^d^ %s" "$date"

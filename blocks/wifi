@@ -1,0 +1,6 @@
+#!/bin/sh
+
+wifi=$(iwgetid -r)
+status=$(echo $?)
+
+[ $status -eq 0 ] && printf "^c#458588^直^d^ %s" "$wifi" || printf "^c#D43131^睊"

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cpu_temp=$(sensors | awk '/Core 0/ {print $3}' | cut -c 2-3)
+gpu_temp=$(nvidia-smi | grep Default | awk '{print $3}' | cut -c 1-2)
+
+average_temp="$(( ($gpu_temp + $cpu_temp)/2 ))"
+
+if [ $average_temp -ge 60 ]; then        
+    printf "^c#e61e1e^"
+elif [ $average_temp -ge 50 ]; then        
+    printf "^c#ed6c34^"
+elif [ $average_temp -ge 40 ]; then        
+    printf "^c#edb634^"
+elif [ $average_temp -ge 35 ]; then        
+    printf "^c#12dbac^"
+elif [ $average_temp -ge 25 ]; then
+    printf "^c#1486ff^"
+else
+    printf "^c#D43131^"
+fi
+
+printf "^d^ %s糖" "$average_temp"

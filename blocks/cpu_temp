@@ -1,0 +1,5 @@
+#!/bin/sh
+
+temp=$(sensors | awk '/Core 0/ {print $3}' | cut -c 2-3)
+
+printf "^c#af3a03^^d^ %s°C" "$temp"

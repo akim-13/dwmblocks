@@ -1,0 +1,23 @@
+#!/bin/sh
+
+iwgetid -r > /dev/null
+status=$(echo $?)
+
+# https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar
+update() {
+    sum=0
+    for arg; do
+        read -r i < "$arg"
+        sum=$(( sum + i ))
+    done
+    cache=${XDG_CACHE_HOME:-$HOME/.cache}/${1##*/}
+    [ -f "$cache" ] && read -r old < "$cache" || old=0
+    printf %d\\n "$sum" > "$cache"
+    printf %d\\n $(( sum - old ))
+}
+
+down=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
+up=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
+
+#printf " %4sB\\n" $(numfmt --to=iec $rx) 
+[ $status -eq 0 ] && printf "^c#b16286^龍^d^ %4sB/s" $(numfmt --to=iec $down) || exit

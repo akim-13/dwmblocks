@@ -1,0 +1,5 @@
+#!/bin/sh
+
+gpu_temp=$(nvidia-smi | grep Default | awk '{print $3}' | cut -c 1-2)
+
+printf "^c#928374^^d^ %s糖" "$gpu_temp"
