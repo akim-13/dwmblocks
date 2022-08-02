@@ -1,0 +1,5 @@
+#!/bin/sh
+ 
+layout=$(xkblayout-state print "%s" | awk '{print toupper($0)}')
+
+printf "^c#458588^^d^ %s" "$layout"

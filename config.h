@@ -1,21 +1,15 @@
-//Modify this file to change what commands output to your statusbar, and recompile using the make command.
+// BUG: Can't have more than 8 entries, zsh throws segmentation error and dumps the core.
 static const Block blocks[] = {
     /*Icon*/    /*Command*/     /*Update Interval*/ /*Update Signal*/
     {"",        "average_temp",         1,                 0},
-    {"",        "volume",               0,                 10}, // signal should be 10, but it results in a weird char being displayed
+    {"",        "volume",               0,                 10}, // The command that sends this signal is "kill -44 $(pidof dwmblocks)". No idea why 44.
     {"",        "wifi",                 3,                 0},
     {"",        "speed",                1,                 0},
-    {"",        "uptime_",              1,                 0},
+    // {"",        "uptime_",              1,                 0},
     {"",        "battery",              2,                 0},
     {"",        "date_",               60,                 0},
     {"",        "time_",                1,                 0},
+    {"",        "layout",               0,                 10},
 };
 
-//Sets delimiter between status commands. NULL character ('\0') means no delimiter.
-// │┃
 static char *delim = "   ";
-
-// Have dwmblocks automatically recompile and run when you edit this file in
-// vim with the following line in your vimrc/init.vim:
-
-// autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
