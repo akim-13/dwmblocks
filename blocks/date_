@@ -1,9 +1,9 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-	1) echo "hi" && pulsemixer --mute ;;
-	2) pulsemixer --mute ;;
-	3) pulsemixer --mute ;;
+    1) echo "hi" && pulsemixer --mute ;;
+    2) pulsemixer --mute ;;
+    3) pulsemixer --mute ;;
 esac
 
 date=$(date "+%b %d/%m/1984 %a")
