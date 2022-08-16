@@ -3,29 +3,29 @@
 read -r cap < /sys/class/power_supply/BAT0/capacity
 
 if [ $cap -lt 10 ]; then
-	printf "^c#9d0006^" 
+    printf "^c#9d0006^" 
 elif [ $cap -lt 20 ]; then
-	printf "^c#9d0006^" 
+    printf "^c#9d0006^" 
 elif [ $cap -lt 30 ]; then
-	printf "^c#9d0006^"
+    printf "^c#9d0006^"
 elif [ $cap -lt 40 ]; then        
-	printf "^c#9d0006^"
+    printf "^c#9d0006^"
 elif [ $cap -lt 50 ]; then        
-	printf "^c#9d0006^"
+    printf "^c#9d0006^"
 elif [ $cap -lt 60 ]; then        
-	printf "^c#B57614^"
+    printf "^c#B57614^"
 elif [ $cap -lt 70 ]; then        
-	printf "^c#B57614^"
+    printf "^c#B57614^"
 elif [ $cap -lt 80 ]; then        
-	printf "^c#B8BB26^"
+    printf "^c#B8BB26^"
 elif [ $cap -lt 90 ]; then        
-	printf "^c#B8BB26^"
+    printf "^c#B8BB26^"
 elif [ $cap -lt 100 ]; then
-	printf "^c#B8BB26^";
+    printf "^c#B8BB26^";
 elif [ $cap -eq 100 ]; then
-	printf "^c#B8BB26^";
+    printf "^c#B8BB26^";
 else
-	printf ""
+    printf ""
 fi
 
 charging=$(acpi -a | awk '{print $3}')
