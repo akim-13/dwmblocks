@@ -8,8 +8,8 @@
 
 static const Block blocks[] = {
     /*Icon*/    /*Command*/     /*Update Interval*/ /*Update Signal*/
-    // {"",        "brightness",           1,                 0},
-    // {"",        "uptime_",              1,                 0},
+    {"",        "brightness",           1,                 0},
+    {"",        "uptime_",              1,                 0},
     {"",        "average_temp",         1,                 0},
     {"",        "wifi",                 3,                 0},
     {"",        "speed",                1,                 0},
