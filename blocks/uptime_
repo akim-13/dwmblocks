@@ -1,9 +1,11 @@
 #!/bin/sh
 
-# Breaks when >1h
-# Example output of 1 hour 3 min:
-# 17:09:33 up  1:03,  1 user,  load average: 0.66, 0.50, 0.30
-# With -p:
-# up 1 hour, 4 minutes
-uptime=$(awk {'print $1 / 60'} /proc/uptime | cut -d. -f1)
-printf "^c#d65d0e^^d^ %s min" "$uptime"
+uptime_seconds=$(awk {'print $1'} /proc/uptime | cut -d. -f1)
+
+if [ $uptime_seconds -lt 3600 ]; then
+    uptime=$(date -d@$uptime_seconds -u "+%-M min")
+else
+    uptime=$(date -d@$uptime_seconds -u "+%-Hh %-Mmin")
+fi
+
+printf "^c#d65d0e^^d^ %s" "$uptime"

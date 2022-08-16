@@ -1,5 +1,8 @@
 #!/bin/sh
 
-brightness=$(brightnessctl g)
+# 0-512
+absolute_brightness=$(brightnessctl g)
 
-printf "^c#d79921^^d^ %s" "$brightness"
+brightness_percentage=$( awk "BEGIN {print ($absolute_brightness/512)*100}" | cut -f1 -d. )
+
+printf "^c#d79921^^d^ %s%%" "$brightness_percentage"
