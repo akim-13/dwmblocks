@@ -7,4 +7,4 @@ case $BLOCK_BUTTON in
 esac
 
 date=$(date "+%b %d/%m/1984 %a")
-printf "^c#d83a27^^d^ %s" "$date"
+printf "^c#d83a27^ ^d^ %s" "$date"

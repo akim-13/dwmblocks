@@ -3,8 +3,8 @@
 # 0-512
 absolute_brightness=$(brightnessctl g)
 
-brightness_percentage=$(awk "BEGIN {print ($absolute_brightness/512)*100}" | cut -f1 -d.)
 
+brightness_percentage=$(awk "BEGIN {print ($absolute_brightness/400)*100}" | cut -f1 -d.)
 if [ $brightness_percentage -gt 50 ]; then
     icon=""
 elif [ $brightness_percentage -gt 20 ]; then
@@ -13,4 +13,4 @@ else
     icon=""
 fi
 
-printf "^c#d79921^%s^d^ %s%%" "$icon" "$brightness_percentage"
+printf "^c#d79921^%s ^d^ %s%%" "$icon" "$brightness_percentage"

@@ -17,4 +17,4 @@ else
     icon="ﱝ" 
 fi
 
-echo "^c#689d6a^$icon^d^ $vol%"
+echo "^c#689d6a^$icon ^d^ $vol%"

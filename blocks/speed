@@ -20,4 +20,4 @@ down=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
 up=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
 
 #printf " %4sB\\n" $(numfmt --to=iec $rx) 
-[ $status -eq 0 ] && printf "^c#b16286^龍^d^ %4sB/s" $(numfmt --to=iec $down) || exit
+[ $status -eq 0 ] && printf "^c#b16286^龍 ^d^ %4sB/s" $(numfmt --to=iec $down) || exit

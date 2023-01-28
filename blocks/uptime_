@@ -8,4 +8,4 @@ else
     uptime=$(date -d@$uptime_seconds -u "+%-Hh %-Mmin")
 fi
 
-printf "^c#d65d0e^^d^ %s" "$uptime"
+printf "^c#d65d0e^ ^d^ %s" "$uptime"
