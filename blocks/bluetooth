@@ -1,0 +1,12 @@
+#!/bin/sh
+
+connected_dev=$(bluetoothctl devices Connected | cut -d ' ' -f 3- | sed -z 's/\n/ | /g; s/ | $//')
+is_powered=$(bluetoothctl show | grep Powered | cut -d ' ' -f 2-)
+
+if [ -n "$connected_dev" ]; then
+    printf "^c#458588^^d^ %s" "$connected_dev"
+elif [ "$is_powered" == "yes" ]; then
+    printf "^c#458588^^d^"
+else
+    printf "^c#d83a27^^d^"
+fi
